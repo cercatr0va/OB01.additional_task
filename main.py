@@ -44,51 +44,29 @@ class Store:
 
 # Пример использования класса Store
 if __name__ == "__main__":
-    # Создание нескольких объектов класса Store
-    # Добавлены три магазина с уникальными названиями, адресами и товарами
-
-    # Создание первого магазина
+    # Создание магазина
     store1 = Store("Магазин у дома", "ул. Ленина, 12")
+
+    # Добавление товаров в магазин
     store1.add_item("apples", 50)
     store1.add_item("bananas", 60)
     store1.add_item("milk", 80)
 
-    # Создание второго магазина
-    store2 = Store("Супермаркет", "пр. Мира, 22")
-    store2.add_item("bread", 40)
-    store2.add_item("cheese", 150)
-    store2.add_item("butter", 120)
-
-    # Создание третьего магазина
-    store3 = Store("Эко Маркет", "ул. Зеленая, 5")
-    store3.add_item("organic apples", 100)
-    store3.add_item("organic bananas", 120)
-    store3.add_item("almond milk", 200)
-
-    # Отображение товаров каждого магазина
-    print("\n--- Ассортимент магазина 'Магазин у дома' ---")
+    # Отображение всех товаров
     store1.display_items()
 
-    print("\n--- Ассортимент магазина 'Супермаркет' ---")
-    store2.display_items()
-
-    print("\n--- Ассортимент магазина 'Эко Маркет' ---")
-    store3.display_items()
-
-    # Пример получения цены товара
-    price = store2.get_price("bread")
+    # Получение цены товара
+    price = store1.get_price("apples")
     if price is not None:
-        print(f"\nЦена на хлеб в 'Супермаркете': {price} руб.")
+        print(f"Цена на яблоки: {price} руб.")
     else:
-        print("\nХлеб не найден в 'Супермаркете'.")
+        print("Яблоки не найдены в магазине.")
 
-    # Пример обновления цены и удаления товара
+    # Обновление цены товара
     store1.update_price("bananas", 65)
-    store3.remove_item("organic bananas")
 
-    # Отображение товаров после обновлений
-    print("\n--- Обновлённый ассортимент магазина 'Магазин у дома' ---")
+    # Удаление товара
+    store1.remove_item("milk")
+
+    # Отображение всех товаров после удаления и обновления
     store1.display_items()
-
-    print("\n--- Обновлённый ассортимент магазина 'Эко Маркет' ---")
-    store3.display_items()
