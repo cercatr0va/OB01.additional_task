@@ -44,29 +44,51 @@ class Store:
 
 # Пример использования класса Store
 if __name__ == "__main__":
-    # Создание магазина
-    store1 = Store("Магазин у дома", "ул. Ленина, 12")
+    # Создание нескольких объектов класса Store
+    # Добавлены три магазина с уникальными названиями, адресами и товарами
 
-    # Добавление товаров в магазин
+    # Создание первого магазина
+    store1 = Store("Магазин у дома", "ул. Ленина, 12")
     store1.add_item("apples", 50)
     store1.add_item("bananas", 60)
     store1.add_item("milk", 80)
 
-    # Отображение всех товаров
+    # Создание второго магазина
+    store2 = Store("Супермаркет", "пр. Мира, 22")
+    store2.add_item("bread", 40)
+    store2.add_item("cheese", 150)
+    store2.add_item("butter", 120)
+
+    # Создание третьего магазина
+    store3 = Store("Эко Маркет", "ул. Зеленая, 5")
+    store3.add_item("organic apples", 100)
+    store3.add_item("organic bananas", 120)
+    store3.add_item("almond milk", 200)
+
+    # Отображение товаров каждого магазина
+    print("\n--- Ассортимент магазина 'Магазин у дома' ---")
     store1.display_items()
 
-    # Получение цены товара
-    price = store1.get_price("apples")
+    print("\n--- Ассортимент магазина 'Супермаркет' ---")
+    store2.display_items()
+
+    print("\n--- Ассортимент магазина 'Эко Маркет' ---")
+    store3.display_items()
+
+    # Пример получения цены товара
+    price = store2.get_price("bread")
     if price is not None:
-        print(f"Цена на яблоки: {price} руб.")
+        print(f"\nЦена на хлеб в 'Супермаркете': {price} руб.")
     else:
-        print("Яблоки не найдены в магазине.")
+        print("\nХлеб не найден в 'Супермаркете'.")
 
-    # Обновление цены товара
+    # Пример обновления цены и удаления товара
     store1.update_price("bananas", 65)
+    store3.remove_item("organic bananas")
 
-    # Удаление товара
-    store1.remove_item("milk")
-
-    # Отображение всех товаров после удаления и обновления
+    # Отображение товаров после обновлений
+    print("\n--- Обновлённый ассортимент магазина 'Магазин у дома' ---")
     store1.display_items()
+
+    print("\n--- Обновлённый ассортимент магазина 'Эко Маркет' ---")
+    store3.display_items()
